@@ -1,0 +1,28 @@
+#root { 
+  text-align: center;
+}
+
+
+.container{
+   width: 100vw ;
+   height: 100vh;
+   background-color: antiquewhite;
+   display: flex;
+   justify-content: center;
+   align-items: end;
+
+   
+}
+
+.wraper{
+  background-color: black;
+  height: 3rem;
+  width: 80vw;
+  color:white;
+  margin: 2rem ;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
