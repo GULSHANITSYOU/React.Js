@@ -1,19 +1,25 @@
 import { useState } from "react";
+import Button from "./components/buttons/Button";
 
 function App() {
-  const [count, setCount] = useState(0);
+  
 
   return (
-    <div className="bg-gray-500 h-screen flex items-center justify-center  flex-col  ">
-      <h1 className="text-6xl font-extrabold">Theme Changer</h1>
+    <>
+      <div className=" h-screen flex items-center justify-center  flex-col  ">
+        <h1 className="text-6xl font-extrabold">Theme Changer</h1>
 
-      <div className="flex w-3/5 bg-slate-400 rounded-md p-2 items-center justify-center gap-x-3   ">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">crimson</button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">sky blue</button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">yello green</button>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Dark</button>
+        <div className="flex w-3/5 bg-slate-800 rounded-md p-2 items-center justify-center gap-x-3 fixed bottom-8    ">
+          <Button bgcolor={"crimson"} buttonName={"crimson"}></Button>
+          <Button bgcolor={"#87CEEB"} buttonName={"sky blue"}></Button>
+          <Button bgcolor={"#98FB98"} buttonName={"Mint Green"}></Button>
+          <Button bgcolor={"#E6E6FA"} buttonName={"Soft Lavender"}></Button>
+          <Button bgcolor={"#212121"} buttonName={"Dark"}></Button>
+        </div>
       </div>
-    </div>
+      <div className="w-full h-screen"> </div>
+      <div className="w-full h-screen"> </div>
+    </>
   );
 }
 
