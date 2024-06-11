@@ -54,7 +54,13 @@ function App() {
             readOnly
             ref={copypassword}
           />
-          <button onClick={copy} className="ml-4 bg-blue-700 py-1 px-3 font-bold rounded-lg">
+          <button onClick={(e)=>{
+            copy(); 
+            e.target.style.backgroundColor = "#212121"
+            setTimeout(()=>{e.target.style.backgroundColor = ""} , 50)
+            
+
+          }} className="ml-4 bg-blue-700 py-1 px-3 font-bold rounded-lg">
             Copy
           </button>
         </form>
