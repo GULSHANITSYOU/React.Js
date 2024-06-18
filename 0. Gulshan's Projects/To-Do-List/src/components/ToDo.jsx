@@ -1,9 +1,9 @@
-import { useDeferredValue, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import { IoSaveOutline } from "react-icons/io5";
 
-const ToDo = ({ todotext }) => {
+const ToDo = ({ todotext, todokey, updatetodo, deletetodo }) => {
   const checkbox = useRef(null);
   const inputText = useRef(null);
   const editBtn = useRef(null);
@@ -18,13 +18,11 @@ const ToDo = ({ todotext }) => {
     } else {
       setDone("");
       editBtn.current.style.display = "block";
-
     }
   }
 
   function Editehandle() {
     inputText.current.readOnly = !inputText.current.readOnly;
-    console.log(inputText);
 
     if (inputText.current.readOnly) {
       setSaveEdit(<FaRegEdit />);
@@ -39,10 +37,15 @@ const ToDo = ({ todotext }) => {
     }
   }
 
+  function submitHandle(e) {
+    e.preventDefault();
+    updatetodo(todokey, todo);
+  }
+
   return (
-    <li>
+    <li key = {todokey}>
       <form
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={submitHandle}
         className="border-2 px-2 py-1 rounded-lg flex items-center justify-between text-left text-wrap">
         <input
           onChange={checkHandle}
@@ -67,7 +70,9 @@ const ToDo = ({ todotext }) => {
             className="border-2 px-3 py-1 rounded-lg  hover:scale-105 transition-all">
             {saveEdit}
           </button>
-          <button className="border-2 px-3 py-1 rounded-lg  hover:scale-105 transition-all">
+          <button
+            onClick={() => deletetodo(todokey)}
+            className="border-2 px-3 py-1 rounded-lg  hover:scale-105 transition-all">
             <MdOutlineDelete />
           </button>
         </div>
