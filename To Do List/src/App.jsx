@@ -4,7 +4,7 @@ import ToDoForm from "./components/ToDoForm";
 import ToDoItems from "./components/ToDoItems";
 
 
-function   App() {
+function    App() {
   const [todos, setTodos] = useState([]);
 
   const addTodo = (todo) => {
