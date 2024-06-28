@@ -3,9 +3,7 @@ import { nanoid } from "nanoid";
 import ToDoContext from "./TodoContext";
 
 const ContextProvider = ({ children }) => {
-  const [todos, settodos] = useState([
-    { key: nanoid(), todotext: "Hello ji kaise ho Let's make To do" },
-  ]);
+  const [todos, settodos] = useState([]);
 
   const addtodo = (todotext) => {
     const newTodo = { key: nanoid(), todotext };
@@ -27,13 +25,11 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     try {
       const locTodos = JSON.parse(localStorage.getItem("todos"));
-      console.log("hl");
 
       if (locTodos && locTodos.length > 0) {
-      console.log("hlo");
-
         settodos(locTodos);
-      }
+        
+      } 
     } catch (error) {
       console.error("Failed to load todos from localStorage:", error);
     }
@@ -47,8 +43,6 @@ const ContextProvider = ({ children }) => {
       console.error("Failed to save todos to localStorage:", error);
     }
   }, [todos]);
-
- 
 
   return (
     <ToDoContext.Provider value={{ todos, addtodo, updatetodo, deletetodo }}>

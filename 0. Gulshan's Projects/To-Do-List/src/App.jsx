@@ -3,19 +3,16 @@ import ToDo from "./components/ToDo";
 import ToDoContext from "./context/TodoContext";
 import { nanoid } from "nanoid";
 
-
 function App() {
-
   const todoInput = useRef(null);
-  const {todos,addtodo,updatetodo,deletetodo} = useContext(ToDoContext)
+  const { todos, addtodo, updatetodo, deletetodo } = useContext(ToDoContext);
 
   function HandalSubmit(e) {
     e.preventDefault();
 
-    const todotext = todoInput.current.value; 
-    if(todotext.length)
-    addtodo(todotext);
-    todoInput.current.value = "";   
+    const todotext = todoInput.current.value;
+    if (todotext.length) addtodo(todotext);
+    todoInput.current.value = "";
   }
 
   return (
@@ -32,16 +29,19 @@ function App() {
             placeholder="Enter your to do ! "
             type="text"
           />
-          <button className=" bg-inherit px-12  py-2 rounded-xl border-2 ml-6 hover:scale-105 transition-all">Add</button>
+          <button className=" bg-inherit px-12  py-2 rounded-xl border-2 ml-6 hover:scale-105 transition-all">
+            Add
+          </button>
         </form>
 
         <ul className="border-2 rounded-lg w-full h-full mt-6  px-4 py-2 overflow-scroll overflow-x-hidden  scroll-smooth  ">
-           {todos.map((todo)=>(<ToDo
-           todotext={todo.todotext}
-           todokey = {todo.key}
-           updatetodo = {updatetodo}
-           deletetodo = {deletetodo}
-           ></ToDo>))}
+          {todos.map((todo) => (
+            <ToDo
+              todotext={todo.todotext}
+              todokey={todo.key}
+              updatetodo={updatetodo}
+              deletetodo={deletetodo}></ToDo>
+          ))}
         </ul>
       </div>
     </div>
